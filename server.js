@@ -3,7 +3,7 @@ const hbs = require("hbs");
 
 var app = express();
 
-// __dirname store the name to the path directory
+hbs.registerPartials(__dirname + "/views/partials")
 app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "hbs");

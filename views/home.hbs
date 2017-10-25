@@ -5,12 +5,13 @@
     <title>Welcome!</title>
   </head>
   <body>
+
+      {{> header}}
+
       <h1>{{pageTitle}}</h1>
       <p>This is the welcome page made with .hbs!</p>
       <p>{{pageContent}}</p>
 
-      <footer>
-        <p>Made in {{currentYear}}</p>
-      </footer>
+      {{> footer}}
   </body>
 </html>
