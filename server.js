@@ -19,6 +19,9 @@ app.use(express.static(__dirname + "/public"));
 // Use next() for the app. continue to run
 // If we don't call next(), the app. handlers never gonna fire
 app.use((req, res, next) => {
+
+  var now = new Date().toString();
+  console.log(`${now}: ${req.method}  + ${req.url}`);
   next();
 })
 
