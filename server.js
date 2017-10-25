@@ -34,7 +34,6 @@ app.use((req, res, next) => {
 //   res.render("maintenance.hbs")
 // })
 
-
 // This needs to be moved after the maintenance otherwise it will still load.
 app.use(express.static(__dirname + "/public"));
 
