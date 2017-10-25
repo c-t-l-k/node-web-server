@@ -22,8 +22,12 @@ app.get("/", (req, res) => {
 
 
 //Instead of having .send, we're gonna use .render
+// To pass data, we're gonna use an object
 app.get("/about", (req, res) => {
-  res.render("about.hbs");
+  res.render("about.hbs", {
+      pageTitle: "About Page",
+      currentYear: new Date().getFullYear()
+  });
 });
 
 
