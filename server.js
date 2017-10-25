@@ -14,8 +14,6 @@ hbs.registerHelper("screamIt", (text) => {
   return text.toUpperCase();
 })
 
-app.use(express.static(__dirname + "/public"));
-
 app.use((req, res, next) => {
 
   var now = new Date().toString();
@@ -30,6 +28,17 @@ app.use((req, res, next) => {
   })
   next();
 })
+
+// Here, we are creating a middleware in case we wanna update the site.
+// app.use((req, res, next) => {
+//   res.render("maintenance.hbs")
+// })
+
+
+// This needs to be moved after the maintenance otherwise it will still load.
+app.use(express.static(__dirname + "/public"));
+
+
 
 app.set("view engine", "hbs");
 
