@@ -15,6 +15,13 @@ hbs.registerHelper("screamIt", (text) => {
 
 app.use(express.static(__dirname + "/public"));
 
+// Creating the middleware here
+// Use next() for the app. continue to run
+// If we don't call next(), the app. handlers never gonna fire
+app.use((req, res, next) => {
+  next();
+})
+
 app.set("view engine", "hbs");
 
 app.get("/", (req, res) => {
