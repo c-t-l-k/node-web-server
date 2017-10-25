@@ -16,16 +16,13 @@ hbs.registerHelper("screamIt", (text) => {
 
 app.use(express.static(__dirname + "/public"));
 
-// Creating the middleware here
-// Use next() for the app. continue to run
-// If we don't call next(), the app. handlers never gonna fire
 app.use((req, res, next) => {
 
   var now = new Date().toString();
   var log = `${now}: ${req.method}  + ${req.url}`;
 
   console.log(log);
-  // fs > filename + content to add + callback if error
+
   fs.appendFile("server.log", log + "\n", (err) => {
     if(err){
       console.log("Unable to append to server file");
