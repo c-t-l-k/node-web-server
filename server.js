@@ -9,20 +9,14 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "hbs");
 
 app.get("/", (req, res) => {
-  res.send({
-    name: "Cyrus",
-    likes: ["Mélo", "Louisie"]
-  })
+  res.render("home.hbs", {
+      pageTitle: "Welcome",
+      pageContent: "Welcome to this webpage!",
+      currentYear: new Date().getFullYear()
+  });
 });
 
 
-// app.get("/about", (req, res) => {
-//   res.send("<h1>About page</h1>");
-// });
-
-
-//Instead of having .send, we're gonna use .render
-// To pass data, we're gonna use an object
 app.get("/about", (req, res) => {
   res.render("about.hbs", {
       pageTitle: "About Page",
