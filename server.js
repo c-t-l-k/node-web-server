@@ -1,9 +1,12 @@
 const express = require("express");
+const hbs = require("hbs");
 
 var app = express();
 
 // __dirname store the name to the path directory
 app.use(express.static(__dirname + "/public"));
+
+app.set("view engine", "hbs");
 
 app.get("/", (req, res) => {
   res.send({
@@ -13,8 +16,14 @@ app.get("/", (req, res) => {
 });
 
 
+// app.get("/about", (req, res) => {
+//   res.send("<h1>About page</h1>");
+// });
+
+
+//Instead of having .send, we're gonna use .render
 app.get("/about", (req, res) => {
-  res.send("<h1>About page</h1>");
+  res.render("about.hbs");
 });
 
 
